@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang=En>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="I don’t think it’s any secret that I love working with Docker. Docker Compose is a layer that works really well for me as someone who often makes small web apps that don’t necessitate the overhead pro">
+<meta name="keywords" content="docker, compose, docker-compose, javascript, node, web, web app, development, software">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Making web apps with Docker Compose">
+<meta property="og:url" content="https://jamescm.github.io/personal-portfolio/2018/06/29/making-web-apps-with-compose/index.html">
+<meta property="og:site_name" content="Cory James">
+<meta property="og:description" content="I don’t think it’s any secret that I love working with Docker. Docker Compose is a layer that works really well for me as someone who often makes small web apps that don’t necessitate the overhead pro">
+<meta property="og:locale" content="English">
+<meta property="og:updated_time" content="2018-06-30T04:15:47.567Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Making web apps with Docker Compose">
+<meta name="twitter:description" content="I don’t think it’s any secret that I love working with Docker. Docker Compose is a layer that works really well for me as someone who often makes small web apps that don’t necessitate the overhead pro">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/personal-portfolio/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/personal-portfolio/images/android-chrome-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/personal-portfolio/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Making web apps with Docker Compose</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/personal-portfolio/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/personal-portfolio/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/personal-portfolio/">Home</a></li>
+         
+          <li><a href="/personal-portfolio/about/">About</a></li>
+         
+          <li><a href="/personal-portfolio/archives/">Writing</a></li>
+         
+          <li><a href="/personal-portfolio/projects">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/personal-portfolio/2018/06/28/git-init/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://jamescm.github.io/personal-portfolio/2018/06/29/making-web-apps-with-compose/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://jamescm.github.io/personal-portfolio/2018/06/29/making-web-apps-with-compose/&text=Making web apps with Docker Compose"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://jamescm.github.io/personal-portfolio/2018/06/29/making-web-apps-with-compose/&title=Making web apps with Docker Compose"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://jamescm.github.io/personal-portfolio/2018/06/29/making-web-apps-with-compose/&is_video=false&description=Making web apps with Docker Compose"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Making web apps with Docker Compose&body=Check out this article: https://jamescm.github.io/personal-portfolio/2018/06/29/making-web-apps-with-compose/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://jamescm.github.io/personal-portfolio/2018/06/29/making-web-apps-with-compose/&title=Making web apps with Docker Compose"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://jamescm.github.io/personal-portfolio/2018/06/29/making-web-apps-with-compose/&title=Making web apps with Docker Compose"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://jamescm.github.io/personal-portfolio/2018/06/29/making-web-apps-with-compose/&title=Making web apps with Docker Compose"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://jamescm.github.io/personal-portfolio/2018/06/29/making-web-apps-with-compose/&title=Making web apps with Docker Compose"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://jamescm.github.io/personal-portfolio/2018/06/29/making-web-apps-with-compose/&name=Making web apps with Docker Compose&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Making web apps with Docker Compose
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Cory James</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2018-06-29T22:09:45.000Z" itemprop="datePublished">2018-06-29</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/personal-portfolio/tags/docker-compose-docker-compose-javascript-node-web-web-app-development-software/">docker, compose, docker-compose, javascript, node, web, web app, development, software</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>I don’t think it’s any secret that I love working with Docker. Docker Compose is a layer that works really well for me as someone who often makes small web apps that don’t necessitate the overhead provided by Kubernetes, Rancher, or any other container management system. Many of my Compose files contain fewer than 5 containers.</p>
+<p>Today we’ll be making a small Hello World app using Compose and Node. Let’s start with a list of files we’ll be creating.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├───web/</span><br><span class="line">│   ├───index.js</span><br><span class="line">│   └───Dockerfile</span><br><span class="line">├───.env</span><br><span class="line">└───docker-compose.yml</span><br></pre></td></tr></table></figure>
+<p>Let’s start by making a simple Express app in our <code>web</code> directory.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ./web/index.js</span></span><br><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>)</span><br><span class="line"><span class="keyword">const</span> app = express()</span><br><span class="line">app.get(<span class="string">'/'</span>, (req, res) =&gt; res.send(<span class="string">'Hello, world!'</span>))</span><br><span class="line">app.listen(<span class="number">3000</span>, () =&gt; <span class="built_in">console</span>.log(<span class="string">'Express listening on port 3000'</span>))</span><br></pre></td></tr></table></figure>
+<p>We have to set up our <code>package.json</code> and dependencies too so let’s do that now.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> web</span><br><span class="line">npm init -y</span><br><span class="line">npm i -P express</span><br><span class="line">npm shrinkwrap</span><br><span class="line">rm -r node_modules</span><br></pre></td></tr></table></figure>
+<p>Don’t worry about the <code>npm shrinkwrap</code> statement yet, we’ll get to that later. Now let’s set up our <code>docker-compose.yml</code>.</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ./docker-compose.yml</span></span><br><span class="line"><span class="attr">version:</span> <span class="string">"3"</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">  web:</span></span><br><span class="line"><span class="attr">    build:</span> <span class="string">./web</span></span><br><span class="line"><span class="attr">    ports:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"3000:3000"</span></span><br><span class="line"><span class="attr">    volumes:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">./web:/srv/app</span></span><br><span class="line"><span class="attr">    working_dir:</span> <span class="string">/srv/app</span></span><br><span class="line"><span class="attr">    entrypoint:</span> <span class="string">npm</span> <span class="string">start</span></span><br></pre></td></tr></table></figure>
+<p>In our Compose file, we’ve declared that we’re using version 3 of Docker Compose and we have one service named <code>web</code>. We’re going to build our container using a Dockerfile from <code>./web</code>. We’ve also mapped the host’s port 3000 to the container’s port 3000 so that we can access it using the host’s IP address at port 3000 once we bring the container up. We’re <em>voluming</em> the contents of the host directory called <code>./web</code> into <code>/srv/app</code> on the container. Lastly, we’ve told Docker Compose to use <code>npm start</code> as the entrypoint for the container. When the container starts, it will execute this command and give it PID 1. If PID 1 dies, the container shuts down.</p>
+<p>That’s a lot of stuff for just a few lines of code. Hopefully all these components will become a little easier to understand as we set up our app and make changes in the future.</p>
+<p>So we’ve told Docker Compose to build from a Dockerfile in <code>./web</code> but we haven’t written it yet! Let’s do that now.</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ./web/Dockerfile</span></span><br><span class="line"><span class="keyword">FROM</span> node:<span class="number">10.5</span>.<span class="number">0</span>-alpine</span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> package.json npm-shrinkwrap.json /srv/app/</span></span><br><span class="line"><span class="bash">WORKDIR /srv/app</span></span><br><span class="line"><span class="bash">RUN npm i --production --quiet</span></span><br><span class="line"><span class="bash">`</span></span><br></pre></td></tr></table></figure>
+<p>Let’s make a few changes to our Compose file again.</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ./docker-compose.yml</span></span><br><span class="line"><span class="string">...</span></span><br><span class="line"><span class="attr">  web:</span></span><br><span class="line"><span class="attr">    build:</span> <span class="string">./web</span></span><br><span class="line"><span class="attr">    ports:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"3000:3000"</span></span><br><span class="line"><span class="attr">    volumes:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">./web:/srv/app</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">/srv/app/node_modules</span></span><br><span class="line"><span class="attr">    working_dir:</span> <span class="string">/srv/app</span></span><br><span class="line"><span class="attr">    entrypoint:</span> <span class="string">npm</span> <span class="string">start</span></span><br></pre></td></tr></table></figure>
+<p>We’ve done a few things here to make our lives easier. This is also where our <code>npm shrinkwrap</code> becomes useful. We’ve built our Dockerfile to copy our <code>package.json</code> and <code>npm-shrinkwrap.json</code> into the app location in our container and then install our dependencies into the image. Now we won’t have to resort to voluming in our <code>node_modules</code> from the host to the container. For a better understanding of what’s happening here, I <em>highly</em> recommend reading <a href="https://jdlm.info/articles/2016/03/06/lessons-building-node-app-docker.html" target="_blank" rel="noopener">this article by John Lees-Miller</a>.</p>
+<p>If you run <code>docker-compose up</code> and everything went right, you should see the following output. You can also now visit your site to see “Hello, world!”</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">web_1       | &gt; web@1.0.0 start /srv/app</span><br><span class="line">web_1       | &gt; node .</span><br><span class="line">web_1       |</span><br><span class="line">web_1       | Express listening on port 3000</span><br></pre></td></tr></table></figure>
+<p>Now that’d be great if web apps could be made with a few lines in Express but unfortunately that’s not the world we live in. Let’s give our app a database to work with. Before we go modify our Compose file, let’s dive into the <code>.env</code> file. All this file is, very simply, is a file that Docker automatically reads in order to load environment variables. Let’s use ours to help with development.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ./.env</span></span><br><span class="line">MYSQL_USER=myUser</span><br><span class="line">MYSQL_PASSWORD=myPassword</span><br><span class="line">MYSQL_DATABASE=myDatabase</span><br></pre></td></tr></table></figure>
+<p>Now let’s add our database to compose.</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ./docker-compose.yml</span></span><br><span class="line"><span class="attr">version:</span> <span class="string">"3"</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">  database:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="attr">mysql:5.7.22</span></span><br><span class="line"><span class="attr">    volumes:</span></span><br><span class="line"><span class="attr">      - mysql_data:</span><span class="string">/var/lib/mysql</span></span><br><span class="line"><span class="attr">    environment:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">MYSQL_RANDOM_ROOT_PASSWORD=yes</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">MYSQL_USER</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">MYSQL_PASSWORD</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">MYSQL_DATABASE</span></span><br><span class="line"></span><br><span class="line"><span class="attr">  web:</span></span><br><span class="line"><span class="attr">    build:</span> <span class="string">./web</span></span><br><span class="line"><span class="attr">    environment:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">MYSQL_USER</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">MYSQL_PASSWORD</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">MYSQL_DATABASE</span></span><br><span class="line"><span class="attr">    ports:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"3000:3000"</span></span><br><span class="line"><span class="attr">    volumes:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">./web:/srv/app</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">/srv/app/node_modules</span></span><br><span class="line"><span class="attr">    entrypoint:</span> <span class="string">npm</span> <span class="string">start</span></span><br><span class="line"></span><br><span class="line"><span class="attr">volumes:</span></span><br><span class="line"><span class="attr">  mysql_data:</span></span><br></pre></td></tr></table></figure>
+<p>We’ve added a new container using <code>mysql:5.7.22</code> and given it a few environment variables from our <code>.env</code> file. Since we’ve only passed the names of the variables without declaring a value, it will just pass the value along. It’s the same as <code>MYSQL_USER=${MYSQL_USER}</code>. We’ve also gone ahead and given those variables to our web container so that it can login with the user we’ve made for it.</p>
+<p>Under volumes, we mount the named volume <code>mysql_data</code> to <code>/var/lib/mysql</code> which is where the container stores its data. You’ll also notice at the bottom is where we declare our named volume. All this is so we can persist our database in the case the container is ever destroyed.</p>
+<p>Let’s fire it up with <code>docker-compose up</code>. You’re going to see a lot of gibberish from MySQL but it should end with something like the following.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">database_1  | 2018-06-29T22:06:42.590438Z 0 [Note] mysqld: ready for connections.</span><br><span class="line">database_1  | Version: &apos;5.7.22&apos;  socket: &apos;/var/run/mysqld/mysqld.sock&apos;  port: 3306  MySQL Community Server (GPL)</span><br></pre></td></tr></table></figure>
+<p>Let’s try connecting to our database from our app using Sequelize. First, install Sequelize and mysql2 as a production dependency.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># If you have trouble, remove node_modules</span></span><br><span class="line"><span class="comment"># sudo rm -r ./web/node_modules</span></span><br><span class="line">npm --prefix ./web i -P sequelize mysql2</span><br><span class="line">docker-compose build web</span><br></pre></td></tr></table></figure>
+<p>Next we’ll try connecting to it.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ./web/index.js</span></span><br><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>)</span><br><span class="line"><span class="keyword">const</span> Sequelize = <span class="built_in">require</span>(<span class="string">'sequelize'</span>)</span><br><span class="line"><span class="keyword">const</span> &#123; MYSQL_USER, MYSQL_PASSWORD, MYSQL_DATABASE &#125; = process.env</span><br><span class="line"><span class="built_in">console</span>.log(process.env)</span><br><span class="line"><span class="keyword">const</span> sequelize = <span class="keyword">new</span> Sequelize(MYSQL_DATABASE, MYSQL_USER, MYSQL_PASSWORD, &#123;</span><br><span class="line">  host: <span class="string">'database'</span>, <span class="comment">// We're using the container name as a host name</span></span><br><span class="line">  dialect: <span class="string">'mysql'</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = express()</span><br><span class="line">app.get(<span class="string">'/'</span>, <span class="keyword">async</span> (req, res) =&gt; &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">await</span> sequelize.authenticate()</span><br><span class="line">    res.send(<span class="string">'Hello from MySQL!'</span>)</span><br><span class="line">  &#125; <span class="keyword">catch</span> (err) &#123;</span><br><span class="line">    res.send(err)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line">app.listen(<span class="number">3000</span>, () =&gt; <span class="built_in">console</span>.log(<span class="string">'Express listening on port 3000'</span>))</span><br></pre></td></tr></table></figure>
+<p>Run everything with <code>docker-compose up</code> and visit your site which is presumably at <code>http://localhost:3000</code>. If all went well you should see “Hello from MySQL!” in your browser and the following in your web logs.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">web_1       | Executing (default): SELECT 1+1 AS result</span><br></pre></td></tr></table></figure>
+<p>This bit of magic was enabled by <a href="https://docs.docker.com/compose/networking/" target="_blank" rel="noopener">Compose networking</a>. In short, Docker Compose links all of your containers into a single network that can communicate with one another by using the container name given to them in the Compose file. So when we pass ‘database’ to the host argument in Sequelize, that eventually gets resolved to the Docker IP for the database container. Neat, right?`</p>
+<p>I won’t pretend like this is at all best practice for developing a production app in Docker. We could further secure our MySQL passwords by storing them in the machine’s environment variables rather than an env file. We could also declare our app to be a Docker swarm and use <code>docker secrets</code>. We could also improve our <code>node_modules</code> situation by assigning it a named volume as well. We will investigate some improvements in part 2!</p>
+<p>Check this example out in Git: <a href="https://github.com/jamescm/docker-web-app-example" target="_blank" rel="noopener">https://github.com/jamescm/docker-web-app-example</a>.</p>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/personal-portfolio/">Home</a></li>
+         
+          <li><a href="/personal-portfolio/about/">About</a></li>
+         
+          <li><a href="/personal-portfolio/archives/">Writing</a></li>
+         
+          <li><a href="/personal-portfolio/projects">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://jamescm.github.io/personal-portfolio/2018/06/29/making-web-apps-with-compose/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://jamescm.github.io/personal-portfolio/2018/06/29/making-web-apps-with-compose/&text=Making web apps with Docker Compose"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://jamescm.github.io/personal-portfolio/2018/06/29/making-web-apps-with-compose/&title=Making web apps with Docker Compose"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://jamescm.github.io/personal-portfolio/2018/06/29/making-web-apps-with-compose/&is_video=false&description=Making web apps with Docker Compose"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Making web apps with Docker Compose&body=Check out this article: https://jamescm.github.io/personal-portfolio/2018/06/29/making-web-apps-with-compose/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://jamescm.github.io/personal-portfolio/2018/06/29/making-web-apps-with-compose/&title=Making web apps with Docker Compose"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://jamescm.github.io/personal-portfolio/2018/06/29/making-web-apps-with-compose/&title=Making web apps with Docker Compose"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://jamescm.github.io/personal-portfolio/2018/06/29/making-web-apps-with-compose/&title=Making web apps with Docker Compose"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://jamescm.github.io/personal-portfolio/2018/06/29/making-web-apps-with-compose/&title=Making web apps with Docker Compose"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://jamescm.github.io/personal-portfolio/2018/06/29/making-web-apps-with-compose/&name=Making web apps with Docker Compose&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2018 Cory James
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/personal-portfolio/">Home</a></li>
+         
+          <li><a href="/personal-portfolio/about/">About</a></li>
+         
+          <li><a href="/personal-portfolio/archives/">Writing</a></li>
+         
+          <li><a href="/personal-portfolio/projects">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/personal-portfolio/lib/font-awesome/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="/personal-portfolio/lib/justified-gallery/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/personal-portfolio/lib/jquery/jquery.min.js"></script>
+<script src="/personal-portfolio/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/personal-portfolio/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
