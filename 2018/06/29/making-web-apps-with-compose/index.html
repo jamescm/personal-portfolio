@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Cory James">
 <meta property="og:description" content="I don’t think it’s any secret that I love working with Docker. Docker Compose is a layer that works really well for me as someone who often makes small web apps that don’t necessitate the overhead pro">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2018-07-01T05:03:19.941Z">
+<meta property="og:updated_time" content="2018-07-01T05:30:18.253Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Making web apps with Docker Compose">
 <meta name="twitter:description" content="I don’t think it’s any secret that I love working with Docker. Docker Compose is a layer that works really well for me as someone who often makes small web apps that don’t necessitate the overhead pro">
@@ -72,6 +72,8 @@
     <br/>
     <span id="actions">
       <ul>
+        
+        <li><a class="icon" href="/personal-portfolio/2018/07/05/making-web-apps-with-compose-2/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
         <li><a class="icon" href="/personal-portfolio/2018/06/28/git-init/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
@@ -174,7 +176,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">web_1       | Executing (default): SELECT 1+1 AS result</span><br></pre></td></tr></table></figure>
 <p>This bit of magic was enabled by <a href="https://docs.docker.com/compose/networking/" target="_blank" rel="noopener">Compose networking</a>. In short, Docker Compose links all of your containers into a single network that can communicate with one another by using the container name given to them in the Compose file. So when we pass ‘database’ to the host argument in Sequelize, that eventually gets resolved to the Docker IP for the database container. Neat, right?</p>
 <p>I won’t pretend like this is at all best practice for developing a production app in Docker. We could further secure our MySQL passwords by storing them in the machine’s environment variables rather than an env file. We could also declare our app to be a Docker swarm and use <code>docker secrets</code>. In addition, our application is running as root from within our container; it’d be better if it ran as a user with less privileges. We could also improve our <code>node_modules</code> situation by assigning it a named volume as well. We will investigate some improvements in <a href="/personal-portfolio/2018/06/30/making-web-apps-with-compose-2">part 2</a>!</p>
-<h2 id="Read-more"><a href="#Read-more" class="headerlink" title="Read more"></a>Read more</h2><p>Part 1: Getting started<br>Part 2: Development to Production: Security<br>Part 3: Development to Production: Availability</p>
+<h2 id="Read-more"><a href="#Read-more" class="headerlink" title="Read more"></a>Read more</h2><p>Part 1: Docker Compose and Node: Getting started<br>Part 2: Development to Production: Security<br>Part 3: Development to Production: Availability</p>
 <p>Check this example out in Git: <a href="https://github.com/jamescm/docker-web-app-example" target="_blank" rel="noopener">https://github.com/jamescm/docker-web-app-example</a>.</p>
 
   </div>
