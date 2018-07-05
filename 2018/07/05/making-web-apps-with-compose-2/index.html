@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Cory James">
 <meta property="og:description" content="In my previous post we discussed developing a web app with Docker Compose. We neglected to cover some important points about going from development to production, however. I’m no security expert. I’ve">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2018-07-05T08:53:30.129Z">
+<meta property="og:updated_time" content="2018-07-05T09:19:36.953Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Making web apps with Docker Compose, part 2">
 <meta name="twitter:description" content="In my previous post we discussed developing a web app with Docker Compose. We neglected to cover some important points about going from development to production, however. I’m no security expert. I’ve">
@@ -168,7 +168,7 @@
 <p>First of all, only trusted users should be allowed to control your Docker daemon. This is a direct consequence of some powerful Docker features. Specifically, Docker allows you to share a directory between the Docker host and guest container; and it allows you to do so without limiting the access rights of the container.<br>This means you can start a container where the <code>/host</code> directory is the <code>/</code> directory on your host; and the container can alter your host filesystem without any restriction.</p>
 </blockquote>
 <p>Enforce using <code>sudo</code> to escalate privileges to root in order to use Docker if you’re in a production environment. <a href="https://fosterelli.co/privilege-escalation-via-docker.html" target="_blank" rel="noopener">Don’t use the <code>docker</code> group</a>.</p>
-<p>In the next chapter, we’re rework our app to expect failure and improve resiliency.</p>
+<p>In the next chapter, we’ll rework our app to expect failure and improve resiliency.</p>
 <h2 id="Read-more"><a href="#Read-more" class="headerlink" title="Read more"></a>Read more</h2><p>Part 1: <a href="/personal-portfolio/2018/06/29/making-web-apps-with-compose">Docker Compose and Node: Getting started</a><br>Part 2: Development to Production: Security<br>Part 3: Development to Production: Availability</p>
 
   </div>
