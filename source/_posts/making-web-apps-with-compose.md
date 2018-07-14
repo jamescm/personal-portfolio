@@ -209,8 +209,8 @@ I won't pretend like this is at all best practice for developing a production ap
 
 ## Read more
 
-Part 1: Getting started
-Part 2: Development to Production: Security
+Part 1: Docker Compose and Node: Getting started
+Part 2: [Development to Production: Security](/personal-portfolio/2018/07/05/making-web-apps-with-compose-2)
 Part 3: Development to Production: Availability
 
 Check this example out in Git: https://github.com/jamescm/docker-web-app-example.
